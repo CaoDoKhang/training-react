@@ -1,0 +1,44 @@
+.task-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.task-item__name {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  border-bottom: 2px solid #6741d9;
+}
+
+.task-item__name > h2 {
+  font-size: inherit;
+}
+
+.status {
+  font-weight: 600;
+}
+
+.task-item__description {
+  line-height: 1.8;
+}
+
+.task-item__description > h2 > p {
+  font-weight: 400;
+}
+
+.task-item > button {
+  display: inline-block;
+  background-color: #6741d9;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 1.2rem 2.8rem;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.task-item > button:hover {
+  background-color: #5f3dc4;
+}

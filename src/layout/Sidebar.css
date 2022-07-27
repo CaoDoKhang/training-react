@@ -1,0 +1,24 @@
+.sidebar {
+  background-color: orange;
+}
+
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.sidebar-actions > button {
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-bottom: 4px solid #fff;
+  font-size: 2.8rem;
+  padding: 1.6rem 3.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sidebar-actions > button:hover {
+  background-color: rgb(227, 147, 0);
+}
