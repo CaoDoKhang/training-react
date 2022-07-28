@@ -6,6 +6,9 @@ const TaskForm = (props) => {
   const [enteredCreator, setEnteredCreator] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
 
+  const [validateTitleState, setValidateTitleState] = useState("none");
+  const [validateCreatorState, setValidateCreatorState] = useState("none");
+
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
@@ -18,20 +21,37 @@ const TaskForm = (props) => {
     setEnteredDescription(event.target.value);
   };
 
+  const validateTitle = {
+    display: validateTitleState,
+  };
+  const validateCreator = {
+    display: validateCreatorState,
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
-    const taskData = {
-      title: enteredTitle,
-      creator: enteredCreator,
-      description: enteredDescription,
-    };
+    // if (!enteredTitle) {
+    //   setValidateTitleState("");
+    // }
+    !enteredTitle ? setValidateTitleState("") : setValidateTitleState("none");
+    !enteredCreator
+      ? setValidateCreatorState("")
+      : setValidateCreatorState("none");
 
-    props.onSaveTaskData(taskData);
+    if (enteredTitle && enteredCreator) {
+      const taskData = {
+        title: enteredTitle,
+        creator: enteredCreator,
+        description: enteredDescription,
+      };
 
-    setEnteredTitle("");
-    setEnteredCreator("");
-    setEnteredDescription("");
-    props.onCancel();
+      props.onSaveTaskData(taskData);
+
+      setEnteredTitle("");
+      setEnteredCreator("");
+      setEnteredDescription("");
+      props.onCancel();
+    }
   };
 
   return (
@@ -45,6 +65,7 @@ const TaskForm = (props) => {
               value={enteredTitle}
               onChange={titleChangeHandler}
             />
+            <span style={validateTitle}>Title không được bỏ trống</span>
           </div>
           <div className="new-task__control">
             <label>Creator</label>
@@ -53,6 +74,7 @@ const TaskForm = (props) => {
               value={enteredCreator}
               onChange={creatorChangeHandler}
             />
+            <span style={validateCreator}>Creator không được bỏ trống</span>
           </div>
           <div className="new-task__control">
             <label>Description</label>

@@ -37,7 +37,7 @@ const Header = (props) => {
             onSaveTaskData={onSaveTaskDataHandler}
             onCancel={stopCreatingHandler}
           />
-          <div className="overlay"></div>
+          <div onClick={stopCreatingHandler} className="overlay"></div>
         </div>
       )}
     </div>
