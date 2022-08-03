@@ -1,0 +1,46 @@
+.task_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+}
+
+.task_item__name {
+  border-bottom: 2px solid #6741d9;
+  padding-bottom: 8px;
+}
+
+.task_item__name > h2 {
+  font-size: inherit;
+}
+
+.status {
+  font-weight: 600;
+}
+
+.task_item__description > h2 {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.task_item__description > h2 > p {
+  font-weight: 400;
+  font-size: inherit;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 16px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background-color: #5f3dc4;
+}

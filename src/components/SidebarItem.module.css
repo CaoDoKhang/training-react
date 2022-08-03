@@ -1,0 +1,18 @@
+.sidebar_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  border-bottom: 2px solid #fff;
+  cursor: pointer;
+}
+
+.sidebar_item:hover {
+  background-color: rgb(219, 142, 0);
+}
+
+.sidebar_item > p {
+  font-size: 24px;
+  color: #fff;
+}
