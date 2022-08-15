@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SidebarItem from "../components/SidebarItem";
 import classes from "./Sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const [filtered, setFitered] = useState("all");
+
+  const onSaveFilterHandler = (type) => {
+    setFitered(type);
+  };
+
   return (
     <div className={classes.sidebar}>
-      <Link style={{ textDecoration: "none" }} to="/task">
+      <Link style={{ textDecoration: "none" }} to="/alltask">
         <SidebarItem item="All Task" />
       </Link>
-      <SidebarItem item="New Task" />
-      <SidebarItem item="Doing Task" />
-      <SidebarItem item="Done Task" />
+      <SidebarItem
+        type="new"
+        onSaveFilter={onSaveFilterHandler}
+        item="New Task"
+      />
+      <SidebarItem
+        type="doing"
+        onSaveFilter={onSaveFilterHandler}
+        item="Doing Task"
+      />
+      <SidebarItem
+        type="done"
+        onSaveFilter={onSaveFilterHandler}
+        item="Done Task"
+      />
     </div>
   );
 };

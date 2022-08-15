@@ -1,0 +1,32 @@
+{
+  "dummy": [
+    {
+      "id": "a1",
+      "title": "Wake up",
+      "creator": "Khang",
+      "status": "new",
+      "description": "This is a task"
+    },
+    {
+      "id": "a2",
+      "title": "Brush teeth",
+      "creator": "Tom",
+      "status": "new",
+      "description": "This is a task"
+    },
+    {
+      "id": "a3",
+      "title": "Breakfast",
+      "creator": "Mom",
+      "status": "new",
+      "description": "This is a task"
+    },
+    {
+      "id": "a4",
+      "title": "Sleep",
+      "creator": "Kem",
+      "status": "new",
+      "description": "This is a task"
+    }
+  ]
+}

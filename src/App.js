@@ -1,50 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Body from "./layout/Body";
 import Header from "./layout/Header";
 import Sidebar from "./layout/Sidebar";
 
-const dummyData = [
-  {
-    id: "a1",
-    title: "Wake up",
-    creator: "Khang",
-    status: "new",
-    description: "This is a task",
-  },
-  {
-    id: "a2",
-    title: "Brush teeth",
-    creator: "Tom",
-    status: "new",
-    description: "This is a task",
-  },
-  {
-    id: "a3",
-    title: "Breakfast",
-    creator: "Mom",
-    status: "new",
-    description: "This is a task",
-  },
-  {
-    id: "a4",
-    title: "Sleep",
-    creator: "Kem",
-    status: "new",
-    description: "This is a task",
-  },
-];
-
 function App() {
-  const [taskData, setTaskData] = useState(dummyData);
+  const [taskData, setTaskData] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/dummy")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setTaskData(data);
+      });
+  }, []);
+
   const onAddTaskHandler = (task) => {
     setTaskData((prevTasks) => [task, ...prevTasks]);
+  };
+
+  const onSaveFilterStatusHandler = (filterStatus) => {
+    const filterData = filterStatus;
+    console.log(filterData);
   };
 
   return (
     <div>
       <Header />
-      <Sidebar />
-      <Body items={taskData} onAddTask={onAddTaskHandler}></Body>
+      <Sidebar onSaveFilterStatus={onSaveFilterStatusHandler} />
+      {taskData && <Body items={taskData} onAddTask={onAddTaskHandler}></Body>}
     </div>
   );
 }

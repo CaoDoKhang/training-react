@@ -1,5 +1,6 @@
 import React from "react";
-import { Route } from "react-router-dom/cjs/react-router-dom";
+// import { Route } from "react-router-dom/cjs/react-router-dom";
+import { Route } from "react-router-dom";
 import AddTask from "../components/AddTask";
 import Task from "../components/Task";
 import classes from "./Body.module.css";
@@ -14,9 +15,12 @@ const Body = (props) => {
     console.log(taskData);
     props.onAddTask(taskData);
   };
+
+  // const filteredNewTask = props.items.filter((task) => task.status === "new");
+
   return (
     <div className={classes.body}>
-      <Route path="/task">
+      <Route path="/alltask">
         <Task items={props.items} />
       </Route>
       <Route path="/add">
