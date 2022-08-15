@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
@@ -9,6 +10,7 @@ const AddTask = (props) => {
   const [enteredCreator, setEnteredCreator] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
   const [error, setError] = useState();
+  const [isAddTask, setIsAddTask] = useState(false);
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -49,6 +51,7 @@ const AddTask = (props) => {
     setEnteredTitle("");
     setEnteredCreator("");
     setEnteredDescription("");
+    setIsAddTask(true);
   };
 
   return (
@@ -60,6 +63,7 @@ const AddTask = (props) => {
           onConfirm={errorHandler}
         />
       )}
+      {isAddTask && <Navigate to="/alltask" replace={true} />}
       <Card className={classes.input}>
         <form onSubmit={addTaskHandler}>
           <label htmlFor="title">Title</label>

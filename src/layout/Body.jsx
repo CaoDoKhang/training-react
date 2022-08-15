@@ -1,6 +1,6 @@
 import React from "react";
 // import { Route } from "react-router-dom/cjs/react-router-dom";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import AddTask from "../components/AddTask";
 import Task from "../components/Task";
 import classes from "./Body.module.css";
@@ -20,12 +20,13 @@ const Body = (props) => {
 
   return (
     <div className={classes.body}>
-      <Route path="/alltask">
-        <Task items={props.items} />
-      </Route>
-      <Route path="/add">
-        <AddTask onSaveTaskData={onSaveTaskDataHandler} />
-      </Route>
+      <Routes>
+        <Route path="/alltask" element={<Task items={props.items} />} />
+        <Route
+          path="/add"
+          element={<AddTask onSaveTaskData={onSaveTaskDataHandler} />}
+        />
+      </Routes>
     </div>
   );
 };
